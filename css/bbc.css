@@ -2,25 +2,11 @@
   box-sizing: border-box;
 }
 
-/* ----------------------------------
-   GLOBAL BASE
----------------------------------- */
-
-html, body {
-  height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
   background-color: white;
-}
-
-/* Sticky footer applies ONLY to Home */
-body.home-page {
-  display: flex;
-  flex-direction: column;
 }
 
 img {
@@ -36,10 +22,7 @@ img {
   display: none;
 }
 
-/* ----------------------------------
-   TOPBAR
----------------------------------- */
-
+/* Topbar */
 #topbar {
   width: 90%;
   max-width: 1000px;
@@ -50,7 +33,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  position: relative; /* FIXED */
 }
 
 #logo {
@@ -82,10 +64,23 @@ img {
   height: 27px;
 }
 
-/* ----------------------------------
-   MENU BARS
----------------------------------- */
+#search-box {
+  background-color: #e4e4e4;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px;
+  margin: 5px 0 5px 5px;
+  width: 120px;
+}
 
+#magnifying-glass {
+  height: 27px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+/* Menu Bars */
 #menu-bar-container {
   border-top: 1px solid #cccccc;
   background-color: #bb1919;
@@ -122,6 +117,10 @@ h1 {
   color: white;
   text-decoration: none;
   font-size: 15px;
+}
+
+#local-news a:hover {
+  text-decoration: underline;
 }
 
 #local-news img {
@@ -161,10 +160,7 @@ h1 {
   border-right: none;
 }
 
-/* ----------------------------------
-   MAIN PAGE CONTENT
----------------------------------- */
-
+/* Main Content */
 #page-container {
   width: 90%;
   max-width: 1000px;
@@ -174,10 +170,6 @@ h1 {
   flex-wrap: wrap;
   background-color: white;
 }
-
-/* ----------------------------------
-   HOMEPAGE ARTICLE
----------------------------------- */
 
 h2 {
   font-weight: normal;
@@ -219,6 +211,10 @@ h3 a:hover {
   padding-left: 10px;
 }
 
+#article-summary a:hover {
+  color: #1167a8;
+}
+
 .date {
   padding-right: 10px;
   color: #5a5a5a;
@@ -244,9 +240,10 @@ h3 a:hover {
   margin: 20px 0;
 }
 
-/* ----------------------------------
-   WATCH/LISTEN SIDEBAR
----------------------------------- */
+.article-link {
+  color: black;
+  text-decoration: none;
+}
 
 #watch-listen {
   width: 100%;
@@ -277,15 +274,25 @@ h4 {
   font-size: 18px;
 }
 
+.watch-listen-link:hover {
+  color: #1167a8;
+}
+
 .side-article {
   overflow: hidden;
   margin-bottom: 20px;
 }
 
-/* ----------------------------------
-   FOOTER
----------------------------------- */
+.no-border {
+  border-left: none;
+  padding: 0;
+}
 
+.border-right {
+  border-right: 1px solid #cccccc;
+}
+
+/* Footer */
 #footer {
   background-color: #000;
   color: #fff;
@@ -311,6 +318,18 @@ h4 {
   color: #fff;
   text-decoration: none;
   margin: 0 12px;
+  position: relative;
+}
+
+.footer-links a:not(:last-child)::after {
+  content: "|";
+  color: #666;
+  position: absolute;
+  right: -15px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -321,12 +340,32 @@ h4 {
   padding-top: 15px;
 }
 
-/* ----------------------------------
-   RESPONSIVE — TABLET
----------------------------------- */
+.footer-bottom-links {
+  margin-bottom: 10px;
+}
 
+.footer-bottom-links a {
+  color: #999;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 12px;
+  position: relative;
+}
+
+.footer-bottom-links a:not(:last-child)::after {
+  content: "|";
+  color: #666;
+  position: absolute;
+  right: -10px;
+}
+
+.footer-bottom-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
-
   #article-container {
     width: 60%;
     padding-right: 20px;
@@ -346,14 +385,13 @@ h4 {
     padding: 13px 8px 0 8px;
   }
 
+  #search-box {
+    width: 100px;
+  }
 }
 
-/* ----------------------------------
-   RESPONSIVE — DESKTOP
----------------------------------- */
-
+/* Desktop */
 @media (min-width: 1024px) {
-
   #article-container {
     width: 670px;
     border-right: 1px solid #cccccc;
@@ -372,29 +410,32 @@ h4 {
     float: left;
   }
 
+  #main-article-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 20px auto;
+    float: none !important;
+    display: block;
+  }
 }
 
-/* ----------------------------------
-   RESPONSIVE — MOBILE
----------------------------------- */
-
+/* Mobile */
 @media (max-width: 767px) {
-
   #mobile-menu-icon {
-    display: flex;
+    display: block;
     width: 25px;
     height: 20px;
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   #mobile-menu-icon span {
+    display: block;
     height: 3px;
     background: #000;
+    margin-bottom: 4px;
     border-radius: 2px;
     transition: 0.3s;
   }
@@ -417,35 +458,75 @@ h4 {
     background: white;
     border-top: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 9999; /* FIXED */
+    z-index: 1000;
   }
 
   #mobile-dropdown.active {
     display: block;
   }
 
+  .mobile-menu-item {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+  }
+
+  .mobile-menu-item:hover {
+    background: #f5f5f5;
+  }
+
   #topbar {
-    justify-content: center; /* FIX (removed position:relative override) */
+    justify-content: center;
+    position: relative;
   }
 
   #logo {
+    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+  }
+
+  #search-box {
+    width: 80px;
+    font-size: 12px;
   }
 
   h1 {
     font-size: 28px;
   }
 
+  #menu-bar-2 {
+    height: auto;
+    justify-content: center;
+  }
+
+  #menu-bar-2 a {
+    padding: 5px 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    border-right: none;
+    border-bottom: 1px solid #bb4545;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+  }
+
+  .footer-bottom-links a {
+    margin: 5px 0;
+  }
 }
 
-/* ----------------------------------
-   SMALL MOBILE
----------------------------------- */
-
+/* Small Mobile */
 @media (max-width: 480px) {
-
   #logo {
     width: 100px;
   }
@@ -458,4 +539,11 @@ h4 {
     font-size: 24px;
   }
 
+  .watch-listen-link {
+    font-size: 16px;
+  }
+
+  .topbar-section:nth-child(n + 4) {
+    display: none;
+  }
 }
