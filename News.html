@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>News</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/bbc.css" />
 
+    <!-- CLEAN INLINE CSS -->
     <style>
       /* 🔴 Red Menu Styles */
       #menu-bar-container {
@@ -92,7 +94,7 @@
         max-width: 1000px;
         margin: 40px auto 60px auto;
         font-family: Helvetica, Arial, sans-serif;
-        flex: 1; /* sticky footer support */
+        flex: 1;
       }
 
       .news-grid {
@@ -200,7 +202,7 @@
         display: block;
       }
 
-      /* 🌍 Bottom Stories (UPDATED) */
+      /* 🌍 Bottom Stories */
       .bottom-stories {
         display: flex;
         flex-direction: column;
@@ -211,7 +213,7 @@
         background: #fff;
         border-radius: 6px;
         overflow: hidden;
-        min-height: 260px; /* NEW: longer card */
+        min-height: 260px;
         transition: transform 0.2s, box-shadow 0.2s;
       }
 
@@ -222,12 +224,11 @@
 
       .bottom-story img {
         width: 100%;
-        height: 190px; /* NEW: larger image */
+        height: 190px;
         object-fit: cover;
         display: block;
       }
 
-      /* NEW — Show more of "Lambeth" on the board */
       .bottom-story img[src="images/wlambeth.png"] {
         object-position: 0 15%;
       }
@@ -240,62 +241,7 @@
         line-height: 1.3;
       }
 
-      /* 📱 Mobile Menu */
-      #mobile-menu-icon {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 25px;
-        height: 21px;
-        cursor: pointer;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-      }
-
-      #mobile-menu-icon span {
-        display: block;
-        height: 5px;
-        background: #000;
-        border-radius: 3px;
-      }
-
-      #mobile-dropdown {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        z-index: 999;
-        border-top: 1px solid #ccc;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      #mobile-dropdown.active {
-        display: flex;
-      }
-
-      #mobile-dropdown a {
-        padding: 12px 20px;
-        text-decoration: none;
-        color: #000;
-        border-bottom: 1px solid #eee;
-        font-size: 16px;
-      }
-
-      #mobile-dropdown a:hover {
-        background: #f5f5f5;
-      }
-
-      @media (min-width: 769px) {
-        #mobile-menu-icon,
-        #mobile-dropdown {
-          display: none !important;
-        }
-      }
-
+      /* 📱 MOBILE FIXES */
       @media (max-width: 768px) {
         .news-grid {
           display: block;
@@ -324,23 +270,14 @@
 
       <div id="mobile-menu-icon"><span></span><span></span><span></span></div>
 
+      <div class="topbar-section topbar-menu"><a href="/index.html">Home</a></div>
+      <div class="topbar-section topbar-menu"><a href="/News.html">News</a></div>
       <div class="topbar-section topbar-menu">
-        <a href="/index.html">Home</a>
+        <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB"
+          target="_blank">Spotify</a>
       </div>
       <div class="topbar-section topbar-menu">
-        <a href="/News.html">News</a>
-      </div>
-      <div class="topbar-section topbar-menu">
-        <a
-          href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB"
-          target="_blank"
-          >Spotify</a
-        >
-      </div>
-      <div class="topbar-section topbar-menu">
-        <a href="https://www.instagram.com/ceebosweezy" target="_blank"
-          >Instagram</a
-        >
+        <a href="https://www.instagram.com/ceebosweezy" target="_blank">Instagram</a>
       </div>
       <div class="topbar-section topbar-menu">
         <a href="http://www.youtube.com/@ceebosw" target="_blank">CeePlayer</a>
@@ -349,39 +286,36 @@
         <a href="https://store.weareceebo.com">Store</a>
       </div>
 
+      <!-- MOBILE DROPDOWN -->
       <div id="mobile-dropdown">
         <a href="/index.html">Home</a>
         <a href="/News.html">News</a>
-        <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB"
-          >Spotify</a
-        >
+        <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a>
         <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
         <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
         <a href="https://store.weareceebo.com">Store</a>
       </div>
     </div>
 
-    <!-- 🔴 MENUS -->
+    <!-- 🔴 MENU BAR 1 -->
     <div id="menu-bar-container">
       <div id="menu-bar">
         <h1>NEWS</h1>
         <div id="local-news">
           <a href="https://maps.app.goo.gl/Bjyr2QNhQj6Tuepd6">Lambeth</a>
-          <img src="images/pointer.png" alt="Location pointer" />
+          <img src="images/pointer.png" />
         </div>
       </div>
     </div>
 
+    <!-- 🔴 MENU BAR 2 -->
     <div id="menu-bar-2-container">
       <div id="menu-bar-2">
         <a href="/index.html">Home</a>
         <a href="/News.html">News</a>
-        <a
-          href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB?si=El0Jfdt7QuKbNWmH2WcidA"
-          >Spotify</a
-        >
-        <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
-        <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
+        <a href="https://open.spotify.com">Spotify</a>
+        <a href="https://instagram.com">Instagram</a>
+        <a href="https://youtube.com">CeePlayer</a>
         <a href="https://store.weareceebo.com">Store</a>
       </div>
     </div>
@@ -390,30 +324,27 @@
     <div id="page-container">
       <section id="top-stories">
         <div class="news-grid">
+          <!-- LEFT COLUMN -->
           <div class="left-column">
-            <a
-              href="https://ceecees.substack.com/p/an-empire-built-on-stilts-uk-underground"
-              class="main-story-link"
-            >
+            <a href="https://ceecees.substack.com/p/an-empire-built-on-stilts-uk-underground"
+              class="main-story-link">
               <div class="main-story">
-                <img src="images/anempire.png" alt="Empire" />
+                <img src="images/anempire.png" />
                 <h3>
-                  An Empire Built On Stilts: UK Underground and the Illusion Of
-                  Change
+                  An Empire Built On Stilts: UK Underground and the Illusion Of Change
                 </h3>
                 <p>
-                  Drake and Fakemink at the 2nd day of his 3 day Wireless
-                  takeover.
+                  Drake and Fakemink at the 2nd day of his 3 day Wireless takeover.
                 </p>
                 <span class="category">Music</span>
               </div>
             </a>
 
+            <!-- BOTTOM STORIES -->
             <div class="bottom-stories">
               <a
-                href="https://open.substack.com/pub/ceecees/p/a-description-of-lambethnotla?r=2i1oo4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false"
-                class="story-link"
-              >
+                href="https://open.substack.com/pub/ceecees/p/a-description-of-lambethnotla"
+                class="story-link">
                 <div class="bottom-story">
                   <img src="images/wlambeth.png" alt="Lambeth Board" />
                   <div style="padding: 10px">
@@ -423,12 +354,10 @@
                 </div>
               </a>
 
-              <a
-                href="https://ceecees.substack.com/p/prison-doesnt-work"
-                class="story-link"
-              >
+              <a href="https://ceecees.substack.com/p/prison-doesnt-work"
+                class="story-link">
                 <div class="bottom-story">
-                  <img src="images/closep.png" alt="Prison" />
+                  <img src="images/closep.png" />
                   <div style="padding: 10px">
                     <h4>Prison Doesn't Work.</h4>
                     <span class="category">Life</span>
@@ -438,35 +367,29 @@
             </div>
           </div>
 
+          <!-- RIGHT COLUMN -->
           <div class="right-column">
-            <a
-              href="https://ceecees.substack.com/p/before-i-was-ceebo"
-              class="story-link"
-            >
+            <a href="https://ceecees.substack.com/p/before-i-was-ceebo" class="story-link">
               <div class="story" id="before">
-                <img src="images/before.png" alt="Before Ceebo" />
+                <img src="images/before.png" />
                 <h4>Before I Was Ceebo</h4>
                 <span class="category">Life</span>
               </div>
             </a>
 
-            <a
-              href="https://ceecees.substack.com/p/the-illusion-of-progress"
-              class="story-link"
-            >
+            <a href="https://ceecees.substack.com/p/the-illusion-of-progress"
+              class="story-link">
               <div class="story" id="progress">
-                <img src="images/gen-z.png" alt="Gen Z" />
+                <img src="images/gen-z.png" />
                 <h4>The illusion of progress.</h4>
                 <span class="category">Culture</span>
               </div>
             </a>
 
-            <a
-              href="https://ceecees.substack.com/p/me-and-my-friend-nostalgia"
-              class="story-link"
-            >
+            <a href="https://ceecees.substack.com/p/me-and-my-friend-nostalgia"
+              class="story-link">
               <div class="story" id="nostalgia">
-                <img src="images/minecraft.png" alt="Minecraft" />
+                <img src="images/minecraft.png" />
                 <h4>Me And My Friend Nostalgia.</h4>
                 <span class="category">Entertainment</span>
               </div>
@@ -481,19 +404,16 @@
       <div id="footer-container">
         <div class="footer-links">
           <a href="/index.html">Home</a>
-          <a
-            href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB?si=El0Jfdt7QuKbNWmH2WcidA"
-            >Spotify</a
-          >
-          <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
-          <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
+          <a href="https://open.spotify.com">Spotify</a>
+          <a href="https://instagram.com">Instagram</a>
+          <a href="https://youtube.com">CeePlayer</a>
         </div>
 
         <div class="footer-links">
           <a href="/News.html">News</a>
           <a href="https://store.weareceebo.com">Store</a>
-          <a href="http://www.youtube.com/@ceebosw">Sounds</a>
-          <a href="https://ceecees.substack.com/">Substack</a>
+          <a href="https://youtube.com">Sounds</a>
+          <a href="https://ceecees.substack.com">Substack</a>
         </div>
 
         <div class="footer-bottom">
@@ -510,8 +430,7 @@
           </div>
 
           <div>
-            Copyright © 2025 Ceebo. Ceebo is not responsible for the content of
-            external sites.
+            Copyright © 2025 Ceebo.
           </div>
         </div>
       </div>
@@ -520,19 +439,17 @@
     <!-- 📜 MENU SCRIPT -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const menuIcon = document.getElementById("mobile-menu-icon");
+        const icon = document.getElementById("mobile-menu-icon");
         const dropdown = document.getElementById("mobile-dropdown");
 
-        menuIcon.addEventListener("click", (e) => {
+        icon.addEventListener("click", function (e) {
           e.stopPropagation();
           dropdown.classList.toggle("active");
         });
 
-        document.addEventListener("click", (e) => {
-          if (
-            !e.target.closest("#mobile-menu-icon") &&
-            !e.target.closest("#mobile-dropdown")
-          ) {
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest("#mobile-menu-icon") &&
+              !e.target.closest("#mobile-dropdown")) {
             dropdown.classList.remove("active");
           }
         });
