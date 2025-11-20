@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <title>News</title>
 
-  <link rel="stylesheet" type="text/css" href="css/bbc.css" />
+  <link rel="stylesheet" type="text/css" href="/css/bbc.css" />
 
   <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
     /* 🔴 Red Menu Styles */
     #menu-bar-container {
       border-top: 1px solid #cccccc;
@@ -40,7 +44,6 @@
       padding: 8px 12px;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
     }
 
     #local-news a {
@@ -54,7 +57,7 @@
       margin-right: 6px;
     }
 
-    /* 🔴 Secondary Red Menu Bar */
+    /* 🔴 Secondary Menu */
     #menu-bar-2-container {
       background-color: #a91717;
       width: 100%;
@@ -66,8 +69,8 @@
       margin: 0 auto;
       height: 40px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     #menu-bar-2 a {
@@ -79,10 +82,6 @@
       line-height: 40px;
     }
 
-    #menu-bar-2 a:hover {
-      text-decoration: underline;
-    }
-
     #menu-bar-2 a:last-child {
       border-right: none;
     }
@@ -92,29 +91,27 @@
       width: 90%;
       max-width: 1000px;
       margin: 40px auto 60px auto;
-      font-family: Helvetica, Arial, sans-serif;
-      flex: 1;
     }
 
+    /* GRID LAYOUT */
     .news-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      gap: 16px;
-      align-items: start;
+      column-gap: 16px;
+      row-gap: 10px !important; /* tighter spacing */
     }
 
     .left-column {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px !important;
     }
 
-    .right-column {
-      display: grid;
-      grid-template-rows: repeat(4, auto);
-      gap: 16px;
+    .right-column .story {
+      margin-bottom: 10px !important;
     }
 
+    /* MAIN STORY */
     .main-story {
       background: #fff;
       border-radius: 6px;
@@ -124,7 +121,7 @@
 
     .main-story:hover {
       transform: scale(1.01);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .main-story img {
@@ -137,17 +134,27 @@
     .main-story h3 {
       font-size: 22px;
       font-weight: 700;
-      margin: 12px 16px 8px;
+      margin: 10px 16px 4px !important;
       color: #000;
+      line-height: 1.2;
     }
 
     .main-story p {
+      margin: 0 16px 4px !important;
       color: #444;
-      margin: 0 16px 12px;
       font-size: 15px;
-      line-height: 1.4;
     }
 
+    .category {
+      display: inline-block;
+      margin: 0 16px 8px !important;
+      font-size: 13px;
+      color: #a91717;
+      font-weight: bold;
+      text-decoration: none !important;
+    }
+
+    /* SMALL STORIES */
     .story {
       background: #fff;
       border-radius: 6px;
@@ -157,7 +164,7 @@
 
     .story:hover {
       transform: scale(1.01);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .story img {
@@ -168,78 +175,58 @@
 
     .story#before img {
       height: 170px;
-      object-position: top center;
-    }
-
-    .story#nostalgia img {
-      object-fit: cover;
-      object-position: center center;
     }
 
     .story h4 {
       font-size: 15px;
       font-weight: 700;
-      margin: 10px 12px 8px;
+      margin: 10px 12px 4px !important;
       color: #000;
       line-height: 1.3;
     }
 
-    .category {
-      display: inline-block;
-      margin: 0 12px 12px;
-      font-size: 13px;
-      color: #a91717;
-      font-weight: bold;
-      text-decoration: none !important;
-    }
-
-    a.story-link,
-    a.main-story-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
+    /* BOTTOM STORIES */
     .bottom-stories {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 10px !important;
     }
 
     .bottom-story {
       background: #fff;
       border-radius: 6px;
       overflow: hidden;
-      min-height: 260px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .bottom-story:hover {
-      transform: scale(1.01);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
     }
 
     .bottom-story img {
       width: 100%;
       height: 190px;
       object-fit: cover;
-      display: block;
     }
 
-    .bottom-story img[src="images/wlambeth.png"] {
-      object-position: 0 15%;
+    .bottom-story div {
+      padding: 8px 12px !important; /* tighter */
     }
 
     .bottom-story h4 {
+      margin: 4px 0 6px !important;
       font-size: 15px;
       font-weight: 700;
       color: #000;
-      margin: 6px 0;
-      line-height: 1.3;
     }
 
-    /* ⭐⭐ THIS IS THE ONLY FIX YOU ASKED FOR ⭐⭐ */
-    /* FULL-WIDTH DROPDOWN LIKE HOME */
+    /* REMOVE UNDERLINES FROM ALL CARDS */
+    a.main-story-link,
+    a.story-link,
+    .main-story a,
+    .story a,
+    .bottom-story a {
+      text-decoration: none !important;
+      color: inherit;
+    }
+
+    /* MOBILE DROPDOWN */
     #mobile-dropdown {
       display: none;
       flex-direction: column;
@@ -247,13 +234,10 @@
       position: absolute;
       top: 60px;
       left: 0;
-      width: 100vw;               /* FULL WIDTH */
-      margin-left: 50%;
-      transform: translateX(-50%); /* CENTER FULL-WIDTH BLOCK */
+      width: 100%;
       z-index: 9999;
       border-top: 1px solid #ccc;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     #mobile-dropdown.active {
@@ -268,13 +252,6 @@
       font-size: 16px;
     }
 
-    @media (min-width: 769px) {
-      #mobile-menu-icon,
-      #mobile-dropdown {
-        display: none !important;
-      }
-    }
-
     @media (max-width: 768px) {
       .news-grid {
         display: block;
@@ -283,8 +260,7 @@
       .right-column {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 20px;
+        gap: 10px !important;
       }
 
       .bottom-stories {
@@ -298,41 +274,22 @@
 
   <!-- 🔝 TOPBAR -->
   <div id="topbar" style="position: relative">
-    <a href="./">
-      <img id="logo" src="images/316 logo.png2.png" alt="316 Logo" />
+    <a href="/">
+      <img id="logo" src="/images/316 logo.png2.png" alt="316 Logo" />
     </a>
 
     <div id="mobile-menu-icon"><span></span><span></span><span></span></div>
 
-    <div class="topbar-section topbar-menu">
-      <a href="./">Home</a>
-    </div>
+    <div class="topbar-section topbar-menu"><a href="/">Home</a></div>
+    <div class="topbar-section topbar-menu"><a href="/news/">News</a></div>
+    <div class="topbar-section topbar-menu"><a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a></div>
+    <div class="topbar-section topbar-menu"><a href="https://www.instagram.com/ceebosweezy">Instagram</a></div>
+    <div class="topbar-section topbar-menu"><a href="http://www.youtube.com/@ceebosw">CeePlayer</a></div>
+    <div class="topbar-section topbar-menu"><a href="https://store.weareceebo.com">Store</a></div>
 
-    <div class="topbar-section topbar-menu">
-      <a href="/News.html">News</a>
-    </div>
-
-    <div class="topbar-section topbar-menu">
-      <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB"
-        target="_blank">Spotify</a>
-    </div>
-
-    <div class="topbar-section topbar-menu">
-      <a href="https://www.instagram.com/ceebosweezy" target="_blank">Instagram</a>
-    </div>
-
-    <div class="topbar-section topbar-menu">
-      <a href="http://www.youtube.com/@ceebosw" target="_blank">CeePlayer</a>
-    </div>
-
-    <div class="topbar-section topbar-menu">
-      <a href="https://store.weareceebo.com">Store</a>
-    </div>
-
-    <!-- ⭐ Fully fixed dropdown -->
     <div id="mobile-dropdown">
-      <a href="./">Home</a>
-      <a href="/News.html">News</a>
+      <a href="/">Home</a>
+      <a href="/news/">News</a>
       <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a>
       <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
       <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
@@ -340,121 +297,113 @@
     </div>
   </div>
 
-  <!-- 🔴 MENUS -->
+  <!-- 🔴 MENU BARS -->
   <div id="menu-bar-container">
     <div id="menu-bar">
       <h1>NEWS</h1>
       <div id="local-news">
         <a href="https://maps.app.goo.gl/Bjyr2QNhQj6Tuepd6">Lambeth</a>
-        <img src="images/pointer.png" alt="Location pointer" />
+        <img src="/images/pointer.png" alt="">
       </div>
     </div>
   </div>
 
   <div id="menu-bar-2-container">
     <div id="menu-bar-2">
-      <a href="./">Home</a>
-      <a href="/News.html">News</a>
-      <a href="https://open.spotify.com">Spotify</a>
-      <a href="https://instagram.com">Instagram</a>
-      <a href="https://youtube.com">CeePlayer</a>
+      <a href="/">Home</a>
+      <a href="/news/">News</a>
+      <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a>
+      <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
+      <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
       <a href="https://store.weareceebo.com">Store</a>
     </div>
   </div>
 
   <!-- 📰 MAIN CONTENT -->
   <div id="page-container">
+    <div class="news-grid">
 
-    <section id="top-stories">
-      <div class="news-grid">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
 
-        <!-- LEFT COLUMN -->
-        <div class="left-column">
-          <a href="https://ceecees.substack.com/p/an-empire-built-on-stilts-uk-underground"
-            class="main-story-link">
-            <div class="main-story">
-              <img src="images/anempire.png" alt="Empire" />
-              <h3>An Empire Built On Stilts: UK Underground and the Illusion Of Change</h3>
-              <p>Drake and Fakemink at the 2nd day of his 3 day Wireless
-                takeover.</p>
-              <span class="category">Music</span>
-            </div>
-          </a>
-
-          <div class="bottom-stories">
-            <a href="https://open.substack.com/pub/ceecees/p/a-description-of-lambethnotla"
-              class="story-link">
-              <div class="bottom-story">
-                <img src="images/wlambeth.png" alt="Lambeth Board" />
-                <div>
-                  <h4>A description of LAMBETHNOTLA.</h4>
-                  <span class="category">London</span>
-                </div>
-              </div>
-            </a>
-
-            <a href="https://ceecees.substack.com/p/prison-doesnt-work"
-              class="story-link">
-              <div class="bottom-story">
-                <img src="images/closep.png" alt="Prison" />
-                <div>
-                  <h4>Prison Doesn't Work.</h4>
-                  <span class="category">Life</span>
-                </div>
-              </div>
-            </a>
+        <a href="https://ceecees.substack.com/p/an-empire-built-on-stilts-uk-underground" class="main-story-link">
+          <div class="main-story">
+            <img src="/images/anempire.png" alt="">
+            <h3>An Empire Built On Stilts: UK Underground and the Illusion Of Change</h3>
+            <p>Drake and Fakemink at the 2nd day of his 3 day Wireless takeover.</p>
+            <span class="category">Music</span>
           </div>
-        </div>
+        </a>
 
-        <!-- RIGHT COLUMN -->
-        <div class="right-column">
+        <div class="bottom-stories">
 
-          <a href="https://ceecees.substack.com/p/before-i-was-ceebo"
-            class="story-link">
-            <div class="story">
-              <img src="images/before.png" alt="Before Ceebo" />
-              <h4>Before I Was Ceebo</h4>
-              <span class="category">Life</span>
+          <a href="https://open.substack.com/pub/ceecees/p/a-description-of-lambethnotla" class="story-link">
+            <div class="bottom-story">
+              <img src="/images/wlambeth.png" alt="">
+              <div>
+                <h4>A description of LAMBETHNOTLA.</h4>
+                <span class="category">London</span>
+              </div>
             </div>
           </a>
 
-          <a href="https://ceecees.substack.com/p/the-illusion-of-progress"
-            class="story-link">
-            <div class="story">
-              <img src="images/gen-z.png" alt="Gen Z" />
-              <h4>The illusion of progress.</h4>
-              <span class="category">Culture</span>
-            </div>
-          </a>
-
-          <a href="https://ceecees.substack.com/p/me-and-my-friend-nostalgia"
-            class="story-link">
-            <div class="story">
-              <img src="images/minecraft.png" alt="Minecraft" />
-              <h4>Me And My Friend Nostalgia.</h4>
-              <span class="category">Entertainment</span>
+          <a href="https://ceecees.substack.com/p/prison-doesnt-work" class="story-link">
+            <div class="bottom-story">
+              <img src="/images/closep.png" alt="">
+              <div>
+                <h4>Prison Doesn't Work.</h4>
+                <span class="category">Life</span>
+              </div>
             </div>
           </a>
 
         </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-column">
+
+        <a href="https://ceecees.substack.com/p/before-i-was-ceebo" class="story-link">
+          <div class="story">
+            <img src="/images/before.png" alt="">
+            <h4>Before I Was Ceebo</h4>
+            <span class="category">Life</span>
+          </div>
+        </a>
+
+        <a href="https://ceecees.substack.com/p/the-illusion-of-progress" class="story-link">
+          <div class="story">
+            <img src="/images/gen-z.png" alt="">
+            <h4>The illusion of progress.</h4>
+            <span class="category">Culture</span>
+          </div>
+        </a>
+
+        <a href="https://ceecees.substack.com/p/me-and-my-friend-nostalgia" class="story-link">
+          <div class="story">
+            <img src="/images/minecraft.png" alt="">
+            <h4>Me And My Friend Nostalgia.</h4>
+            <span class="category">Entertainment</span>
+          </div>
+        </a>
 
       </div>
-    </section>
-
+    </div>
   </div>
 
-  <!-- ⚫ FOOTER -->
+  <!-- FOOTER -->
   <div id="footer">
     <div id="footer-container">
+
       <div class="footer-links">
-        <a href="./">Home</a>
-        <a href="https://open.spotify.com">Spotify</a>
+        <a href="/">Home</a>
+        <a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a>
         <a href="https://www.instagram.com/ceebosweezy">Instagram</a>
         <a href="http://www.youtube.com/@ceebosw">CeePlayer</a>
       </div>
 
       <div class="footer-links">
-        <a href="/News.html">News</a>
+        <a href="/news/">News</a>
         <a href="https://store.weareceebo.com">Store</a>
         <a href="http://www.youtube.com/@ceebosw">Sounds</a>
         <a href="https://ceecees.substack.com/">Substack</a>
@@ -472,16 +421,13 @@
           <a href="#">Make an editorial complaint</a>
           <a href="#">Ceebo emails for you</a>
         </div>
-
-        <div>
-          Copyright © 2025 Ceebo. Ceebo is not responsible for the content of
-          external sites.
-        </div>
+        <div>Copyright © 2025 Ceebo.</div>
       </div>
+
     </div>
   </div>
 
-  <!-- 📜 MENU SCRIPT -->
+  <!-- MOBILE MENU SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const menuIcon = document.getElementById("mobile-menu-icon");
