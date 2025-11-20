@@ -134,19 +134,33 @@
       object-position: top;
     }
 
+
+
+    /* ⭐ FIXED CARD TEXT */
     .main-story h3 {
       font-size: 22px;
       font-weight: 700;
-      margin: 12px 16px 8px;
+      margin: 12px 16px 6px;
       color: #000;
+      line-height: 1.2;
     }
 
     .main-story p {
+      margin: 0 16px 10px;
       color: #444;
-      margin: 0 16px 12px;
       font-size: 15px;
       line-height: 1.4;
     }
+
+    .category {
+      display: inline-block;
+      margin: 0 16px 16px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #a91717;
+    }
+
+
 
     .story {
       background: #fff;
@@ -171,24 +185,12 @@
       object-position: top center;
     }
 
-    .story#nostalgia img {
-      object-position: center;
-    }
-
     .story h4 {
       font-size: 15px;
       font-weight: 700;
-      margin: 10px 12px 8px;
+      margin: 10px 12px 6px;
       color: #000;
       line-height: 1.3;
-    }
-
-    .category {
-      display: inline-block;
-      margin: 0 12px 12px;
-      font-size: 13px;
-      color: #a91717;
-      font-weight: bold;
     }
 
     .bottom-stories {
@@ -214,6 +216,17 @@
       width: 100%;
       height: 190px;
       object-fit: cover;
+    }
+
+    .bottom-story h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #000;
+      margin: 10px 12px 4px;
+    }
+
+    .bottom-story div {
+      padding: 10px 12px;
     }
 
     /* MOBILE DROPDOWN — WORKING */
@@ -292,12 +305,12 @@
 
     <div class="topbar-section topbar-menu"><a href="./">Home</a></div>
     <div class="topbar-section topbar-menu"><a href="/news/">News</a></div>
-    <div class="topbar-section topbar-menu"><a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB" target="_blank">Spotify</a></div>
-    <div class="topbar-section topbar-menu"><a href="https://www.instagram.com/ceebosweezy" target="_blank">Instagram</a></div>
-    <div class="topbar-section topbar-menu"><a href="http://www.youtube.com/@ceebosw" target="_blank">CeePlayer</a></div>
+    <div class="topbar-section topbar-menu"><a href="https://open.spotify.com/artist/4wtelmF043mIcSEjNs7wWB">Spotify</a></div>
+    <div class="topbar-section topbar-menu"><a href="https://www.instagram.com/ceebosweezy">Instagram</a></div>
+    <div class="topbar-section topbar-menu"><a href="http://www.youtube.com/@ceebosw">CeePlayer</a></div>
     <div class="topbar-section topbar-menu"><a href="https://store.weareceebo.com">Store</a></div>
 
-    <!-- 🔥 Dropdown stays INSIDE topbar for your layout -->
+    <!-- 🔥 Dropdown INSIDE topbar -->
     <div id="mobile-dropdown">
       <a href="./">Home</a>
       <a href="/news/">News</a>
@@ -353,7 +366,7 @@
             <a href="https://open.substack.com/pub/ceecees/p/a-description-of-lambethnotla" class="story-link">
               <div class="bottom-story">
                 <img src="/images/wlambeth.png" alt="Lambeth Board" />
-                <div style="padding: 10px">
+                <div>
                   <h4>A description of LAMBETHNOTLA.</h4>
                   <span class="category">London</span>
                 </div>
@@ -363,7 +376,7 @@
             <a href="https://ceecees.substack.com/p/prison-doesnt-work" class="story-link">
               <div class="bottom-story">
                 <img src="/images/closep.png" alt="Prison" />
-                <div style="padding: 10px">
+                <div>
                   <h4>Prison Doesn't Work.</h4>
                   <span class="category">Life</span>
                 </div>
