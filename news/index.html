@@ -226,15 +226,15 @@
       color: inherit;
     }
 
-    /* MOBILE DROPDOWN */
+    /* ✅ MOBILE DROPDOWN – NOW FULL-WIDTH */
     #mobile-dropdown {
       display: none;
       flex-direction: column;
       background: white;
-      position: absolute;
+      position: fixed;   /* CHANGED: was absolute */
       top: 60px;
       left: 0;
-      width: 100%;
+      right: 0;          /* stretch across screen */
       z-index: 9999;
       border-top: 1px solid #ccc;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
